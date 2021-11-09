@@ -23,17 +23,17 @@ async function main() {
   console.log('Payable Contract deployed to:', contract.address);
   try {
     console.log(`Calling deposit()`);
-    await contract.deposit({value:ethers.utils.parseUnits("1", "ether").toHexString()});
+    await contract.deposit({ value: ethers.utils.parseUnits('1', 'ether').toHexString() });
     const balBeforeTransfer = new BN((await deployer2.getBalance()).toString());
-    console.log(
-      `Balance before Transfer : ${balBeforeTransfer} wei`,
+    console.log(`Balance before Transfer : ${balBeforeTransfer} wei`);
+    console.log(`Calling transfer(${deployer2.address})`);
+    const receipt = await contract.transfer(
+      deployer2.address,
+      ethers.utils.parseUnits('1', 'ether').toHexString(),
     );
-    const receipt = await contract.transfer(deployer2.address, ethers.utils.parseUnits("1", "ether").toHexString());
     const balAfterTransfer = new BN((await deployer2.getBalance()).toString());
-    console.log(
-      `Balance after Transfer : ${balAfterTransfer} wei`,
-    );
-    if(balAfterTransfer.gt(balBeforeTransfer)) {
+    console.log(`Balance after Transfer : ${balAfterTransfer} wei`);
+    if (balAfterTransfer.gt(balBeforeTransfer)) {
       console.log('Test Passed!');
       process.exit(0);
     } else {

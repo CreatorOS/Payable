@@ -23,10 +23,12 @@ async function main() {
   console.log('Payable Contract deployed to:', contract.address);
   try {
     console.log(`Calling notPayable()`);
-    const reciept = await contract.notPayable({value:ethers.utils.parseUnits("1", "ether").toHexString()});
+    const receipt = await contract.notPayable({
+      value: ethers.utils.parseUnits('1', 'ether').toHexString(),
+    });
   } catch (e) {
     console.error(e);
-    if(e.message.includes('non-payable method cannot override value')) {
+    if (e.message.includes('non-payable method cannot override value')) {
       console.log('test passed');
       process.exit(0);
     } else {
