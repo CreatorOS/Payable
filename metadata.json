@@ -2,14 +2,33 @@
   "version": "1.0.0",
   "defaultFile": "contracts/Payable.sol",
   "environment": "solidity",
-  "setupCommands": ["npm i", "npx hardhat compile"],
+  "setupCommands": [
+    "npx hardhat compile"
+  ],
   "compileCommand": "npx hardhat compile",
   "tests": [
-    { "itShould": "Compile", "command": "sh learn_tests/63.sh" },
-    { "itShould": "Call deposit", "command": "sh learn_tests/64.sh" },
-    { "itShould": "Call notPayable", "command": "sh learn_tests/65.sh" },
-    { "itShould": "Call withdraw", "command": "sh learn_tests/66.sh" },
-    { "itShould": "Call transfer", "command": "sh learn_tests/67.sh" }
+    {
+      "itShould": "Compile",
+      "command": "sh learn_tests/63.sh"
+    },
+    {
+      "itShould": "Call deposit",
+      "command": "sh learn_tests/64.sh"
+    },
+    {
+      "itShould": "Call notPayable",
+      "command": "sh learn_tests/65.sh"
+    },
+    {
+      "itShould": "Call withdraw",
+      "command": "sh learn_tests/66.sh"
+    },
+    {
+      "itShould": "Call transfer",
+      "command": "sh learn_tests/67.sh"
+    }
   ],
-  "learnerAccessibleFileList": ["contracts/*"]
+  "learnerAccessibleFileList": [
+    "contracts/*"
+  ]
 }
